@@ -7,6 +7,12 @@ body {
   font-family: Helvetica;
   font-weight: 300;
 }
+input:focus, textarea:focus {
+  outline: 3px solid #5c8ef2;
+  border-radius: 5px;
+  /*box-shadow: 0 0 5px 0;*/
+  border: none;
+}
 nav {
   padding: 1em 12%;
   box-shadow: hsl(0, 0%, 80%) 0 0 5px;

@@ -1,7 +1,8 @@
-import { useContext, useState } from "react";
+import { useContext, useReducer } from "react";
 import { TodoContext } from "../Context/TodoContext";
 import { useNavigate } from "react-router-dom";
 import AddForm from "../Components/AddTodoForm";
+import reducer from "../reducer";
 
 
 function UpdateTodo() {
@@ -12,29 +13,17 @@ function UpdateTodo() {
   const todoId = path[path.length - 1];
   const todo = todos.filter(td => td.id === todoId)[0];
 
-  const [title, setTitle] = useState(todo.title);
-  const [date, setDate] = useState(todo.date);
-  const [body, setBody] = useState(todo.body);
-
-  const updateTitle = e => {
-    setTitle(e.target.value);
-  };
-
-  const updateDate = e => {
-    setDate(e.target.value);
-  };
-
-  const updateBody = e => {
-    setBody(e.target.value);
-  };
+  const [state, dispatch] = useReducer(reducer, {
+    title: todo.title, date: todo.date, body: todo.body
+  })
 
   const handleSubmit = e => {
     e.preventDefault();
     const updatedTodo = {
       id: todo.id,
-      title: title,
-      date: date,
-      body: body
+      title: state.title,
+      date: state.date,
+      body: state.body
     };
     const newTodos = todos.filter(td => td !== todo);
 
@@ -59,20 +48,20 @@ function UpdateTodo() {
           type="text"
           name="title"
           placeholder="Title..."
-          value={ title }
-          onChange={ updateTitle }
+          value={ state.title }
+          onChange={ (e) => dispatch({ type: "set-title", payload: { data: e.target.value } }) }
           required/>
         <input
           type="date"
           name="date"
-          value={ date }
-          onChange={ updateDate }
+          value={ state.date }
+          onChange={ (e) => dispatch({ type: "set-date", payload: { data: e.target.value } }) }
           required/>
       </div>
       <textarea
         name="body"
-        onChange={ updateBody }
-        placeholder="Description...">{ body }</textarea>
+        onChange={ (e) => dispatch({ type: "set-body", payload: { data: e.target.value } }) }
+        placeholder="Description...">{ state.body }</textarea>
       <button type="submit">Save Update</button>
     </form>
     </div>
