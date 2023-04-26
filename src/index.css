@@ -40,6 +40,9 @@ nav button {
   box-shadow: hsl(0, 0%, 80%) 0 0 5px;
   margin: 0.5em 0;
   padding: 1em;
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5em;
 }
 .title {
   font-weight: bold;
@@ -80,4 +83,25 @@ form button {
 }
 .hide {
   display: none;
+}
+.todo div:nth-child(2) {
+  display: flex;
+  gap: 0.3em;
+  flex-direction: column;
+}
+.upd-btn {
+  background: #f29f05;
+  color: #fff;
+  width: 100%;
+  border: 2px solid white;
+  padding: 8px 20px;
+  border-radius: 8px;
+}
+.del-btn {
+  background: #c1000f;
+  color: #fff;
+  width: 100%;
+  border: 2px solid white;
+  padding: 8px 20px;
+  border-radius: 8px;
 }
