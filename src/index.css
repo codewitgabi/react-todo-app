@@ -1,13 +1,83 @@
-body {
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
 }
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  font-family: Helvetica;
+  font-weight: 300;
+}
+nav {
+  padding: 1em 12%;
+  box-shadow: hsl(0, 0%, 80%) 0 0 5px;
+}
+@media only screen and (max-width: 768px) {
+  nav {
+    padding: 1em;
+  }
+}
+nav a {
+  text-decoration: none;
+  color: #000;
+}
+nav button {
+  background: #f28705;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  margin-left: 1em;
+}
+.container {
+  margin: 1em 12%;
+}
+@media only screen and (max-width: 768px) {
+  .container {
+    margin: 1em;
+  }
+}
+.todo {
+  box-shadow: hsl(0, 0%, 80%) 0 0 5px;
+  margin: 0.5em 0;
+  padding: 1em;
+}
+.title {
+  font-weight: bold;
+  font-size: 1.25rem;
+  margin-bottom: 0.1em;
+}
+.date {
+  margin-bottom: 0.7em;
+  display: inline-block;
+}
+.body {
+  font-size: 0.8rem;
+}
+.col {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5em;
+  margin-bottom: 0.5em;
+}
+form input {
+  width: 100%;
+  padding: 12px;
+}
+textarea {
+  width: 100%;
+  height: 100px;
+  padding: 12px;
+}
+form button {
+  background: #0554f2;
+  border: none;
+  color: #fff;
+  padding: 10px 35px;
+  border-radius: 5px;
+  display: inline-block;
+  margin: 1em 0;
+}
+.hide {
+  display: none;
 }
