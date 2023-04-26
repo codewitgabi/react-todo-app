@@ -1,9 +1,11 @@
 import { useContext } from "react";
 import { TodoContext } from "../Context/TodoContext";
+import { useNavigate } from "react-router-dom";
 
 
 function Todo({ todo }) {
   const { todos, setTodos } = useContext(TodoContext);
+  const navigate = useNavigate();
 
   const handleDelete = () => {
     const newTodos = todos.filter(td => td.id !== todo.id);
@@ -15,6 +17,10 @@ function Todo({ todo }) {
     setTodos(newTodos);
   };
 
+  const handleUpdate = () => {
+    navigate(`/update/${todo.id}`);
+  };
+
   return (
     <div class="todo">
       <div>
@@ -23,7 +29,10 @@ function Todo({ todo }) {
         <p class="body">{ todo.body }</p>
       </div>
       <div>
-        <button className="upd-btn">Update</button>
+        <button
+          className="upd-btn"
+          onClick={ handleUpdate }
+        >Update</button>
         <button
           className="del-btn"
           onClick={ handleDelete }
