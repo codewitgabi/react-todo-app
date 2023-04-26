@@ -7,7 +7,11 @@ function Todo({ todo }) {
 
   const handleDelete = () => {
     const newTodos = todos.filter(td => td.id !== todo.id);
+    // resave todo to LS
+    localStorage.setItem("todos",
+      JSON.stringify(newTodos));
 
+    // set new state for todos
     setTodos(newTodos);
   };
 

@@ -17,7 +17,12 @@ function AddTodoForm() {
 
     const newTodos = [...todos, newTodo];
 
+    // set state of new todos
     setTodos(newTodos);
+
+    // add todo to local storage
+    localStorage.setItem("todos",
+      JSON.stringify(newTodos));
 
     e.target.reset();
   };
