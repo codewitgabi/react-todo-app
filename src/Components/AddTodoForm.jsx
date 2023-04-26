@@ -9,7 +9,7 @@ function AddTodoForm() {
     e.preventDefault();
 
     const newTodo = {
-      id: new Date(),
+      id: String(Date.now()),
       title: e.target.title.value,
       date: e.target.date.value,
       body: e.target.body.value

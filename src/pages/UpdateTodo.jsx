@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { TodoContext } from "../Context/TodoContext";
 import { useNavigate } from "react-router-dom";
+import AddForm from "../Components/AddTodoForm";
 
 
 function UpdateTodo() {
@@ -8,7 +9,7 @@ function UpdateTodo() {
   const navigate = useNavigate();
 
   const path = window.location.href.split("/");
-  const todoId = path[path.length - 1]
+  const todoId = path[path.length - 1];
   const todo = todos.filter(td => td.id === todoId)[0];
 
   const [title, setTitle] = useState(todo.title);
@@ -46,6 +47,9 @@ function UpdateTodo() {
   };
 
   return (
+    <div className="container">
+    <AddForm />
+
     <form
       id="update-form"
       onSubmit={ handleSubmit }
@@ -71,6 +75,7 @@ function UpdateTodo() {
         placeholder="Description...">{ body }</textarea>
       <button type="submit">Save Update</button>
     </form>
+    </div>
   );
 }
 
